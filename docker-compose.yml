@@ -23,8 +23,6 @@ services:
       - 7001:7001
     volumes:
       - .:/usr/app
-    links:
-      - postgres_database
     depends_on:
       - postgres_database
 
