@@ -3,15 +3,17 @@ import express, { NextFunction, Request, Response } from "express";
 import "express-async-errors";
 import swaggerUi from "swagger-ui-express";
 
-import AppError from "./errors/AppError";
-import router from "./routes";
-import swaggerFile from "./swagger.json";
+import AppError from "@shared/errors/AppError";
 
-import "./database";
-import "./shared/container";
+import swaggerFile from "../../../swagger.json";
+import getConnectionTypeOrm from "../typeorm";
+import router from "./routes";
+
+import "@shared/container";
 
 const app = express();
 
+getConnectionTypeOrm();
 app.use(express.json());
 
 app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerFile));

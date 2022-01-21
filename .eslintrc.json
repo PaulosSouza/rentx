@@ -25,7 +25,12 @@
         "arrow-body-style": "off",
         "prefer-arrow-callback": "off",
         "camelcase": "off",
-        "import/no-unresolved": "error",
+        "import/no-unresolved": [
+            2,
+            {
+                "ignore": ["@"]
+            }
+        ],
         "@typescript-eslint/no-throw-literal": ["off"],
         "@typescript-eslint/no-unused-vars": [
             "error",
@@ -66,7 +71,7 @@
                 "newlinesBetween": "always",
                 "groups": [
                     "module",
-                    "/^@shared/",
+                    "/^@/",
                     [
                         "parent",
                         "sibling",
