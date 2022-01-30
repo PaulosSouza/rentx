@@ -4,7 +4,7 @@ import { v4 as uuidV4 } from "uuid";
 import getConnectionTypeOrm from "..";
 
 async function create() {
-  const connection = await getConnectionTypeOrm();
+  const connection = await getConnectionTypeOrm("localhost");
 
   const id = uuidV4();
 

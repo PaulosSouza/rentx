@@ -25,6 +25,17 @@ services:
       - .:/usr/app
     depends_on:
       - postgres_database
+  
+  postgres_admin:
+    image: dpage/pgadmin4
+    container_name: postgres_admin
+    ports:
+      - 16543:80
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=phferreirasouza106@gmail.com
+      - PGADMIN_DEFAULT_PASSWORD=ignite
+    depends_on:
+      - postgres_database
 
 volumes:
   pgdata:
