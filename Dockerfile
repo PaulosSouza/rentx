@@ -10,4 +10,4 @@ COPY . .
 
 EXPOSE 3333 7001
 
-CMD [ "npm", "run", "dev" ]
+CMD [ "yarn", "dev" ]
