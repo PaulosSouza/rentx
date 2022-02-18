@@ -5,6 +5,10 @@ export default async function getConnectionTypeOrm(host = "postgres_database") {
 
   Object.assign(connectionOptions, {
     host,
+    database:
+      process.env.NODE_ENV === "test"
+        ? "rentx_test"
+        : connectionOptions.database,
   });
 
   return createConnection(connectionOptions);
