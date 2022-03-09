@@ -20,6 +20,17 @@ class DayjsDateProvider implements IDateProvider {
   dateNow(): Date {
     return dayjs().toDate();
   }
+
+  compareInDays(start_date: Date, end_date: Date): number {
+    const endDateUtc = this.convertToUtc(end_date);
+    const startDateUtc = this.convertToUtc(start_date);
+
+    return dayjs(endDateUtc).diff(startDateUtc, "days");
+  }
+
+  addDays(days: number): Date {
+    return dayjs().add(days, "days").toDate();
+  }
 }
 
 export default DayjsDateProvider;
