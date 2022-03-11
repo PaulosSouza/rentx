@@ -1,22 +1,31 @@
 import { hash } from "bcryptjs";
+import { Connection } from "typeorm";
+import { Factory, Seeder } from "typeorm-seeding";
 import { v4 as uuidV4 } from "uuid";
 
-import getConnectionTypeOrm from "..";
+import User from "@modules/accounts/typeorm/entities/User";
 
-async function create() {
-  const connection = await getConnectionTypeOrm("localhost");
+export default class CreateAdminUser implements Seeder {
+  public async run(_: Factory, connection: Connection): Promise<any> {
+    const id = uuidV4();
 
-  const id = uuidV4();
+    const password = await hash("sGe73)~py}g%%x~%", 8);
 
-  const password = await hash("sGe73)~py}g%%x~%", 8);
-
-  await connection.query(
-    `INSERT INTO USERS (id, name, email, password, "isAdmin", created_at, driver_license)
-    values('${id}', 'admin', 'admin@rentx.com.br', '${password}', true, 'now()', 'ABS-1331')
-    `
-  );
-
-  await connection.close();
+    await connection
+      .createQueryBuilder()
+      .insert()
+      .into(User)
+      .values([
+        {
+          id,
+          name: "admin",
+          email: "admin@rentx.com.br",
+          password,
+          isAdmin: "true",
+          created_at: new Date(),
+          driver_license: "ABS-1331",
+        },
+      ])
+      .execute();
+  }
 }
-
-create().then(() => console.log("User admin created!"));
