@@ -7,8 +7,8 @@
   "database": "rentx",
   "migrations": ["./src/shared/infra/typeorm/migrations/*.ts"],
   "entities": ["src/**/typeorm/entities/*.ts"],
+  "seeds": ["./src/shared/infra/typeorm/seed/*.ts"],
   "cli": {
     "migrationsDir": "./src/shared/infra/typeorm/migrations"
   }
 }
-
