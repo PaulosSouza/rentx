@@ -1,5 +1,7 @@
 const defaultDir = process.env.NODE_ENV === "development" ? "src" : "dir";
 
+const defaultFile = process.env.NODE_ENV === "development" ? "*.ts" : "*.js";
+
 module.exports = {
   type: "postgres",
   port: 5432,
@@ -9,9 +11,11 @@ module.exports = {
   database: process.env.DATABASE_NAME,
   synchronize: false,
   logging: true,
-  migrations: [`./${defaultDir}/shared/infra/typeorm/migrations/*.ts`],
-  entities: [`./${defaultDir}/**/typeorm/entities/*.ts`],
-  seeds: [`./${defaultDir}/shared/infra/typeorm/seed/*.ts`],
+  migrations: [
+    `./${defaultDir}/shared/infra/typeorm/migrations/${defaultFile}`,
+  ],
+  entities: [`./${defaultDir}/**/typeorm/entities/${defaultFile}`],
+  seeds: [`./${defaultDir}/shared/infra/typeorm/seed/${defaultFile}`],
   cli: {
     migrationsDir: `./${defaultDir}/shared/infra/typeorm/migrations`,
   },
