@@ -15,5 +15,22 @@ export default async function getConnectionTypeOrm(
         : connectionOptions.database,
   });
 
-  return createConnection(connectionOptions);
+  const environment = process.env.NODE_ENV;
+
+  if (environment === "production") {
+    Object.assign(connectionOptions, {
+      ssl: true,
+      extra: {
+        ssl: {
+          rejectUnauthorized: false,
+        },
+      },
+    });
+  }
+
+  const connection = await createConnection(connectionOptions);
+
+  if (environment === "production") connection.runMigrations();
+
+  return connection;
 }
