@@ -12,8 +12,6 @@ describe("List Categories Controller", () => {
   beforeAll(async () => {
     connection = await getConnectionTypeOrm();
 
-    await connection.query("CREATE SCHEMA IF NOT EXISTS rentx_test");
-
     await connection.runMigrations();
 
     const id = uuid();
