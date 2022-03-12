@@ -1,4 +1,4 @@
-const defaultDir = process.env.NODE_ENV === "development" ? "src" : "dir";
+const defaultDir = process.env.NODE_ENV === "development" ? "src" : "dist";
 
 const defaultFile = process.env.NODE_ENV === "development" ? "*.ts" : "*.js";
 
