@@ -5,7 +5,6 @@ name: Heroku Deployment
 on:
   push:
     branches:
-      - main
       - master
   pull_request:
     branches:

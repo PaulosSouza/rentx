@@ -14,9 +14,9 @@ interface IPayload {
 @injectable()
 class RefreshTokenUseCase {
   constructor(
-    @inject("UsersTokenRepository")
+    @inject("UsersTokensRepository")
     private usersTokenRepository: IUsersTokensRepository,
-    @inject("dateProvider")
+    @inject("DateProvider")
     private dateProvider: IDateProvider
   ) {}
 
@@ -26,6 +26,7 @@ class RefreshTokenUseCase {
       expires_in_refresh_token,
       expires_refresh_token_days,
     } = auth;
+
     const { email, sub } = verify(token, auth.secret_refresh_token) as IPayload;
 
     const user_id = sub;
