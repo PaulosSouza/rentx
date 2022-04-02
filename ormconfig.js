@@ -10,7 +10,6 @@ module.exports = {
   password: process.env.DATABASE_PASS,
   database: process.env.DATABASE_NAME,
   synchronize: false,
-  logging: true,
   migrations: [
     `./${defaultDir}/shared/infra/typeorm/migrations/${defaultFile}`,
   ],

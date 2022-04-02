@@ -19,6 +19,7 @@ export default async function getConnectionTypeOrm(
 
   if (environment === "production") {
     Object.assign(connectionOptions, {
+      logger: true,
       ssl: true,
       extra: {
         ssl: {
