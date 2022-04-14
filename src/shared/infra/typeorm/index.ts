@@ -1,24 +1,24 @@
 import { createConnection, getConnectionOptions } from "typeorm";
 
-export default async function getConnectionTypeOrm(
-  host = process.env.DATABASE_HOST
-) {
+export default async function getConnectionTypeOrm() {
+  const environment = process.env.NODE_ENV;
+
   const connectionOptions = await getConnectionOptions();
 
-  const hostMapped = process.env.NODE_ENV === "test" ? "localhost" : host;
+  if (environment === "test") {
+    const { DATABASE_TEST_HOST, DATABASE_TEST_PORT, DATABASE_TEST_NAME } =
+      process.env;
 
-  Object.assign(connectionOptions, {
-    host: hostMapped,
-    database:
-      process.env.NODE_ENV === "test"
-        ? "rentx_test"
-        : connectionOptions.database,
-  });
-
-  const environment = process.env.NODE_ENV;
+    Object.assign(connectionOptions, {
+      host: DATABASE_TEST_HOST,
+      port: DATABASE_TEST_PORT,
+      database: DATABASE_TEST_NAME,
+    });
+  }
 
   if (environment === "production") {
     Object.assign(connectionOptions, {
+      migrationsRun: true,
       logger: true,
       ssl: true,
       extra: {
@@ -30,8 +30,6 @@ export default async function getConnectionTypeOrm(
   }
 
   const connection = await createConnection(connectionOptions);
-
-  if (environment === "production") connection.runMigrations();
 
   return connection;
 }
