@@ -1,10 +1,12 @@
-const defaultDir = process.env.NODE_ENV === "development" ? "src" : "dist";
+const defaultDir = process.env.NODE_ENV === "development" || 
+  process.env.NODE_ENV === "test" ? "src" : "dist";
 
-const defaultFile = process.env.NODE_ENV === "development" ? "*.ts" : "*.js";
+const defaultFile = process.env.NODE_ENV === "development"
+  || process.env.NODE_ENV === "test" ? "*.ts" : "*.js";
 
 module.exports = {
   type: "postgres",
-  port: 5432,
+  port: process.env.DATABASE_PORT,
   host: process.env.DATABASE_HOST,
   username: process.env.DATABASE_USERNAME,
   password: process.env.DATABASE_PASS,
