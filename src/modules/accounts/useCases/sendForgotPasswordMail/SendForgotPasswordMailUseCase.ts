@@ -5,7 +5,7 @@ import { v4 as uuidV4 } from "uuid";
 import IUsersRepository from "@modules/accounts/repositories/interfaces/IUsersRepository";
 import IUsersTokensRepository from "@modules/accounts/repositories/interfaces/IUsersTokensRepository";
 import IDateProvider from "@shared/container/provider/DateProvider/interfaces/IDateProvider";
-import IMailProvider from "@shared/container/provider/IMailProvider/interfaces/IMailProvider";
+import IMailProvider from "@shared/container/provider/MailProvider/interfaces/IMailProvider";
 import AppError from "@shared/errors/AppError";
 
 @injectable()
