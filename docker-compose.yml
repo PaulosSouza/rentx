@@ -6,7 +6,11 @@ services:
     container_name: postgres
     restart: always
     ports:
-      - 5432:5432
+      - target: 5432
+        host_ip: 0.0.0.0
+        published: 5433
+        protocol: tcp
+        mode: host
     environment:
       - POSTGRES_USER=docker
       - POSTGRES_PASSWORD=ignite
