@@ -4,15 +4,16 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev -r tsconfig-paths/register --transpile-only --ignore-watch node_modules --inspect=0.0.0.0:7001 --respawn src/shared/infra/http/server.ts",
-    "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
+    "dev": "tsnd -r tsconfig-paths/register --transpile-only --ignore-watch node_modules --inspect=0.0.0.0:7001 --respawn src/shared/infra/http/server.ts",
+    "typeorm": "tsnd -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
     "test": "NODE_ENV=test jest --runInBand --detectOpenHandles",
-    "seed:run": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm-seeding/dist/cli.js seed",
-    "seed:config": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm-seeding/dist/cli.js config",
+    "seed:run": "tsnd -r tsconfig-paths/register ./node_modules/typeorm-seeding/dist/cli.js seed",
+    "seed:config": "tsnd -r tsconfig-paths/register ./node_modules/typeorm-seeding/dist/cli.js config",
     "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files",
     "start": "node ./dist/shared/infra/http/server.js"
   },
   "dependencies": {
+    "aws-sdk": "^2.1116.0",
     "babel-plugin-module-resolver": "^4.1.0",
     "babel-plugin-transform-typescript-metadata": "^0.3.2",
     "bcryptjs": "^2.4.3",
