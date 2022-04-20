@@ -1,23 +1,6 @@
 version: "3.9"
 
 services:
-  postgres_database:
-    image: postgres
-    container_name: postgres
-    restart: always
-    ports:
-      - target: 5432
-        host_ip: 0.0.0.0
-        published: 5433
-        protocol: tcp
-        mode: host
-    environment:
-      - POSTGRES_USER=docker
-      - POSTGRES_PASSWORD=ignite
-      - POSTGRES_DB=rentx
-    volumes:
-      - pgdata:/data/postgres
-
   app:
     build: .
     container_name: rentx
@@ -29,9 +12,3 @@ services:
       - 7001:7001
     volumes:
       - .:/usr/app
-    depends_on:
-      - postgres_database
-
-volumes:
-  pgdata:
-    driver: local
