@@ -105,6 +105,7 @@ dist
 
 #Temp folder
 tmp*
+!tmp/.gitkeep
 
 # Vscode
 .vscode*
