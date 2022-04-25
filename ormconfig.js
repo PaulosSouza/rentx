@@ -1,4 +1,4 @@
-const defaultDir = process.env.NODE_ENV === "development" || 
+const defaultDir = process.env.NODE_ENV === "development" ||
   process.env.NODE_ENV === "test" ? "src" : "dist";
 
 const defaultFile = process.env.NODE_ENV === "development"
@@ -20,4 +20,5 @@ module.exports = {
   cli: {
     migrationsDir: `./${defaultDir}/shared/infra/typeorm/migrations`,
   },
+  connectTimeoutMS: 900
 };
