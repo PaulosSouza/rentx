@@ -17,6 +17,7 @@
     "babel-plugin-module-resolver": "^4.1.0",
     "babel-plugin-transform-typescript-metadata": "^0.3.2",
     "bcryptjs": "^2.4.3",
+    "class-transformer": "^0.5.1",
     "csv-parse": "^4.16.3",
     "dayjs": "^1.10.7",
     "dotenv": "^16.0.0",
