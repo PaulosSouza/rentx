@@ -37,6 +37,7 @@ jobs:
         host: ${{ secrets.AWS_SSH_HOST }}
         username: ${{ secrets.AWS_SSH_USER }}
         key: ${{ secrets.AWS_SSH_KEY }}
+        port: ${{ secrets.AWS_SSH_PORT }}
         source: "., !node_modules"
         target: "~/app/rentx"
 
@@ -46,8 +47,9 @@ jobs:
         host: ${{ secrets.AWS_SSH_HOST }}
         username: ${{ secrets.AWS_SSH_USER }}
         key: ${{ secrets.AWS_SSH_KEY }}
-        target: "~/app/rentx"
+        port: ${{ secrets.AWS_SSH_PORT }}
         script: |
+          cd ~/app/rentx
           yarn --frozen-lockfile
           pm2 restart rentx_api
 
