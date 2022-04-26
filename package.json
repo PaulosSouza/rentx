@@ -13,6 +13,8 @@
     "start": "node ./dist/shared/infra/http/server.js"
   },
   "dependencies": {
+    "@sentry/node": "^6.19.7",
+    "@sentry/tracing": "^6.19.7",
     "aws-sdk": "^2.1116.0",
     "babel-plugin-module-resolver": "^4.1.0",
     "babel-plugin-transform-typescript-metadata": "^0.3.2",
