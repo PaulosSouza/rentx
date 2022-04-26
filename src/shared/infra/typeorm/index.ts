@@ -21,19 +21,14 @@ export default async function getConnectionTypeOrm() {
 
     case "production":
       Object.assign(connectionOptions, {
+        migrationsRun: true,
         logging: true,
-        // ssl: true,
-        // extra: {
-        //   ssl: {
-        //     rejectUnauthorized: false,
-        //   },
-        // },
       });
       break;
 
     default:
       Object.assign(connectionOptions, {
-        migrationsRun: true,
+        migrationsRun: false,
         logging: true,
       });
       break;

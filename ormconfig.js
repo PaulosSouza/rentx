@@ -20,5 +20,4 @@ module.exports = {
   cli: {
     migrationsDir: `./${defaultDir}/shared/infra/typeorm/migrations`,
   },
-  connectTimeoutMS: 900
 };
