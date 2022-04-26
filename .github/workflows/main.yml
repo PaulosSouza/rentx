@@ -46,6 +46,7 @@ jobs:
         host: ${{ secrets.AWS_SSH_HOST }}
         username: ${{ secrets.AWS_SSH_USER }}
         key: ${{ secrets.AWS_SSH_KEY }}
+        port: 22
         script: |
           cd ~/app/rentx
           yarn --frozen-lockfile
