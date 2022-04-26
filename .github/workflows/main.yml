@@ -40,14 +40,6 @@ jobs:
         port: ${{ secrets.AWS_SSH_PORT }}
         source: "., !node_modules"
         target: "~/app/rentx"
-
-    - name: Run scripts in Amazon EC2
-      uses: appleboy/scp-action@master
-      with:
-        host: ${{ secrets.AWS_SSH_HOST }}
-        username: ${{ secrets.AWS_SSH_USER }}
-        key: ${{ secrets.AWS_SSH_KEY }}
-        port: ${{ secrets.AWS_SSH_PORT }}
         script: |
           cd ~/app/rentx
           yarn --frozen-lockfile
