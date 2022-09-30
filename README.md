@@ -3,8 +3,8 @@
 </h1>
 
 <p align="center">
-  <a href="https://www.linkedin.com/in/eliasgcf/"><img alt="Made by" src="https://img.shields.io/badge/made%20by-Paulo%20Henrique-blue"></a>
-  <img alt="GitHub" src="https://img.shields.io/github/license/EliasGcf/rentx?color=%23DC1637">
+  <a href="https://www.linkedin.com/in/paulo-henrique-89b148166/"><img alt="Made by" src="https://img.shields.io/badge/made%20by-Paulo%20Henrique-blue"></a>
+  <img alt="GitHub" src="https://img.shields.io/github/license/PaulosSouza/rentx?color=%23DC1637">
   <img alt="Github Actions" src="https://github.com/PaulosSouza/rentx/actions/workflows/main.yml/badge.svg">
 </p>
 
@@ -75,5 +75,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 <p align="center">
-  Made by <a href="https://www.linkedin.com/in/eliasgcf/">Paulo Henrique</a> 🎸
+  Made by <a href="https://www.linkedin.com/in/paulo-henrique-89b148166/">Paulo Henrique</a> 🎸
 </p>
